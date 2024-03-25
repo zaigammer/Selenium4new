@@ -1,10 +1,13 @@
 package org.example;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -14,11 +17,16 @@ import static org.openqa.selenium.support.locators.RelativeLocator.*;
 public class Relativeloactor {
     public static void main(String[] args){
 
-            System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+        /*System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
         ChromeOptions options= new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
+      options.addArguments("--remote-allow-origins=*");
+        WebDriver driver= new ChromeDriver();  */
 
-        WebDriver driver= new ChromeDriver(options);
+        System.setProperty("webdriver.gecko.driver", "C:\\GeckoDriver.exe");
+
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        WebDriverManager.firefoxdriver().setup();
+        WebDriver driver = new FirefoxDriver(firefoxOptions);
 
         driver.get("https://rahulshettyacademy.com/angularpractice/");
 
